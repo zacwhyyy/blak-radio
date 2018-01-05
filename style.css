@@ -9,8 +9,8 @@
 
 iframe {
     visibility: hidden;
-    position: absolute;
     z-index: -100;
+    position: absolute;
     left: 0;
     top: 0;
 }
@@ -77,8 +77,9 @@ p, div {
 
 #title {
 	text-align: center;
-	padding: 40px 0;
+	padding: 35px 0;
 	font-weight: 900;
+	font-size: 15px;
 }
 
 #info-section, #wave-section {
@@ -120,7 +121,7 @@ hr {
 
 .genre {
 	text-align: center;
-	font-size: 13px;
+	font-size: 12px;
 	padding: 20px;
 	line-height: 21px;
 }

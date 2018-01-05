@@ -3,10 +3,12 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,900" rel="stylesheet">
+	<!-- note to self: remember to load library first before adding in external script -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="siriwave.js"></script>
+	<script src="myScript.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -16,16 +18,16 @@
 	<div class="wrapper" id="player">
 		<div id="info-section">
 			<div class="float-left">
-				<h1>Good Morning,<br>my friend.</h1>
-				<p class="greeting">Hope you had a wonderful breakfast.</p>
+				<h1 id="greet">Hello there! <br>How is it going?</h1>
+				<p class="greeting" id="greetingDesc">Hope you had a wonderful breakfast!</p>
 			</div>
 			<div class="float-left track-section">
-				<div class="cd">
-					<img src="asset/cd.png" />
+				<div id="cd" class="cd">
+					<img id="vinylImage" src="asset/cd.png" />
 				</div>
 				<div class="track-info">
 					<p class="small"><i>You are currently listening to</i></p>
-					<h3>Reflection of My Life</h3>
+					<h3 id="currentTrack">-</h3>
 					<p class="footnote">Genre - Oldies</p>
 				</div>
 			</div>
@@ -35,16 +37,22 @@
 			<script>
 				//alert(document.getElementById("siric").offsetWidth);
 
-				var siriWidth = document.getElementById("siric").offsetWidth;
+				//create new variable for wave width
+				var waveWidth;
+				initWave();
 
-				var SW = new SiriWave({
-					width: siriWidth,
-					height: 300,
-					speed: 0.06,
-					amplitude: 1,
-					container: document.getElementById('siric'),
-					autostart: true,
-				});
+				//add event listener to window, if resize assign new width of id siric to variable waveWidth
+				window.addEventListener("resize", resetWaveWidth);
+				function resetWaveWidth() {
+					//clear the div if window is being resized
+				    $("#siric").empty();
+				    var waveWidth = document.getElementById("siric").offsetWidth;
+				    initWave();
+				}
+
+				//get the current timing
+				getCurrentTime(); 
+
 			</script>
 		</div>
 	</div>
@@ -52,14 +60,19 @@
 	<div class="wrapper">
 		<hr style="height: 1px;">
 		<div class="genre">
-			<p><span class="grey">Change Genre:</span></p>
-			<p>Jazz | Metal | Oldies | Meditative | Indie Rock</p>
+			<p>Change Channel: (Coming Soon)</p>
+			<p><span class="grey">Jazz | Indie Rock | Oldies | Meditative | Metal </span></p>
 		</div>
 	</div>
 
 	<!-- Invisible Youtube player -->
 	<!-- Feel free to replace the youtube playlist URL -->
-	<!-- <iframe width="200" height="112.5" src="https://www.youtube.com/embed/videoseries?list=PL8PcOgbBJ79uvVmsBDAyfoUJEnpVeE5yO&index=1&autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe> -->
+	<!-- <iframe width="200" height="112.5" src="https://www.youtube.com/embed/videoseries?list=PL8PcOgbBJ79uvVmsBDAyfoUJEnpVeE5yO&index=2&autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe> -->
+	<div id="ytplayer"></div>
+	<!-- init Youtube player & its API -->
+	<!-- <script type="text/javascript" src="ytplayer.js"></script> -->
 
 </body>
 </html>
+
+
