@@ -1,0 +1,187 @@
+/* original soundwave css */
+#siric {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+iframe {
+    visibility: hidden;
+    z-index: -100;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#preloader { position: fixed; left: 0; top: 0; z-index: 999; width: 100%; height: 100%; overflow: visible; background: #000 url('../asset/vinylPreloader.gif') no-repeat center center; }
+
+#playBtn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -95px;
+	width: 180px;
+	height: 20px;
+	text-align: center;
+	background: #0433FF;
+	padding: 15px 0;
+	z-index: 200;
+	border-radius: 150px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+#overlay {
+	background-color: #111;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0.7;
+	z-index: 100;
+}
+
+body {
+	background: #000;
+	margin: 0;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+/* my css */
+
+p, h1, h2, h3, h4, h5, h6, div {
+	padding: 0; margin: 0;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 300;
+}
+
+h1 {
+	font-size: 60px;
+	line-height: 65px;
+	margin: 12px 0;
+}
+
+.small {
+	font-size: 13px !important;
+	margin: 5px 0;
+	color: #aaa;
+}
+
+.footnote {
+	font-size: 10px !important;
+	margin: 5px 0;
+	color: #aaa;
+}
+
+.greeting {
+	font-size: 18px;
+	color: #aaa !important;
+	margin-bottom: 12px;
+}
+
+#player {
+	margin: 40px 0;
+}
+
+img {
+	width: 100%;
+}
+
+p, div {
+	color: #fff;
+}
+
+.wrapper {
+	width: 100%;
+	float: left;
+}
+
+.float-left {
+	float: left;
+}
+
+#title {
+	text-align: center;
+	padding: 35px 0;
+	font-weight: 900;
+	font-size: 15px;
+}
+
+#info-section, #wave-section {
+	float: left;
+}
+
+#info-section {
+	width: 40%;
+}
+
+#wave-section {
+	width: 60%;
+}
+
+.cd {
+	width: 20%;
+	float: left;
+}
+
+.track-info {
+	width: 78%;
+	float: left;
+	margin: 9px 0;
+	padding-left: 2%;
+}
+
+.track-section {
+	margin-top: 20px;
+}
+
+hr {
+	opacity: 0.2;
+	background-color: #fff;
+}
+
+.grey {
+	color: #aaa;
+}
+
+.genre {
+	text-align: center;
+	font-size: 12px;
+	padding: 20px;
+	line-height: 21px;
+}
+
+#playBtn, #overlay {
+	display: none;
+}
+
+/* mobile responsive */
+@media screen and (max-width: 600px) {
+	#info-section, #wave-section {
+		width: 95% !important;
+	}
+
+	.track-info {
+		margin: 0;
+	}
+
+	h1 {
+		font-size: 45px;
+		line-height: 52px;
+	}
+
+	#playBtn {
+		display: block;
+	}
+
+	#overlay {
+		display: block;
+	}
+
+}
+

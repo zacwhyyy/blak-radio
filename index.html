@@ -3,18 +3,40 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>The Blak Radio</title>
+	<meta name="description" content="Your flashback internet radio. More of the Oldies music you love, personalized just for you. Tune in now!" />
+	<meta property="og:image" content="http://limzhiyang.com/play/blakradio/asset/fb-ogg.jpg">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,900" rel="stylesheet">
+	<link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="asset/favicon.ico" type="image/x-icon">
+	<link rel="icon" sizes="192x192" href="asset/icon-highres.png"> 
+	<link rel="icon" sizes="128x128" href="asset/icon.png">
+	<link rel="apple-touch-icon" sizes="128x128" href="icon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="128x128" href="icon.png">
+
 	<!-- note to self: remember to load library first before adding in external script -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="siriwave.js"></script>
-	<script src="myScript.js"></script>
+	<script src="js/myScript.js"></script>
+	<script src="js/siriwave.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-76847575-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-76847575-2');
+	</script>
 </head>
 <body>
+
+	<div id="overlay"></div>
+	<div id="playBtn">Listen Now</div>
+
+	<div id="preloader"></div>
 	<div class="wrapper">
 		<p id="title">THE BLAK RADIO</p>
 	</div>
-
 	<div class="wrapper" id="player">
 		<div id="info-section">
 			<div class="float-left">
@@ -28,7 +50,7 @@
 				<div class="track-info">
 					<p class="small"><i>You are currently listening to</i></p>
 					<h3 id="currentTrack">-</h3>
-					<p class="footnote">Genre - Oldies</p>
+					<p class="footnote">Oldies but Goodies</p>
 				</div>
 			</div>
 		</div>
@@ -60,8 +82,8 @@
 	<div class="wrapper">
 		<hr style="height: 1px;">
 		<div class="genre">
-			<p>Change Channel: (Coming Soon)</p>
-			<p><span class="grey">Jazz | Indie Rock | Oldies | Meditative | Metal </span></p>
+			<p>Lyrics of the Day</p>
+			<p><span class="grey" id="lyrics">The world is, a bad place, a bad place, a terrible place to live. But I don't want to die - Marmalade</span></p>
 		</div>
 	</div>
 
@@ -75,4 +97,22 @@
 </body>
 </html>
 
+<script>
+//remove wave animation on mobile
+if( $(window).width() < 600) {
+	var removeMe = document.getElementById("wave-section");
+	removeMe.remove();
+}  
 
+//on click play video function on mobile
+//https://tutorialzine.com/2015/08/how-to-control-youtubes-video-player-with-javascript
+document.getElementById("playBtn").addEventListener("click", playMusic);
+function playMusic() {
+    player.playVideo();
+    //prevent player go fullscreen
+    // Get DOM video player not YT videoplayer
+	videoPlayer = document.getElementById('player');
+	// don't allow full screen 
+	videoPlayer.allowFullscreen = false;
+}
+</script>
